@@ -1,9 +1,12 @@
 #include<stdio.h>
 int main()
 {
-    float studenti,sconto
-    printf("Inserisci numero studenti");
-    scanf("%f",&studenti);
-    sconto=(studenti*12)-50%
-    printf(sconto)
+    int studenti;
+    float sconto;
+    studenti=0;
+    sconto=0;
+    printf("Inserisci numero studenti \t");
+    scanf("%d",&studenti);
+    sconto=(studenti*12)/2;
+    printf("la spesa per %d sarebe di %.2f euro \t",studenti,sconto);
 }
