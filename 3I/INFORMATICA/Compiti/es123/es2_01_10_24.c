@@ -8,6 +8,7 @@ int main()
     scanf("%f",&num2);
     printf("Inserisci il terzo numero: \t");
     scanf("%f",&num3);
+    media = (num1 + num2 + num3) / 3;
      min = num1;
     if (num2 < min) 
     {
@@ -26,9 +27,8 @@ int main()
     {
         max = num3;
     }
-     media = (num1 + num2 + num3) / 3;
-    printf("Il numero più piccolo è: %.2f\n", min);
-    printf("Il numero più grande è: %.2f\n", max);
-    printf("La media aritmetica è: %.2f\n", media);
+    printf("Il numero minore è: %.2f\n", min);
+    printf("Il numero maggiore è: %.2f\n", max);
+    printf("La media è: %.2f\n", media);
 
 }
