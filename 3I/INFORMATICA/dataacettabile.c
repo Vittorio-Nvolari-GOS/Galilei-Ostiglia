@@ -4,7 +4,7 @@
 int main()
 {
     int g=0,m=0,a=0,bisestile=0;
-    printf("inserisci la data in ordine gg mm aaaa");
+    printf("inserisci la data in ordine gg mm aaaa \t");
     scanf("%d%d%d", &g, &m, &a);
     if(a%100==0)
     {
