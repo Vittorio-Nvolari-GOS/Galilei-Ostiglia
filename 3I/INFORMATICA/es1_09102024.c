@@ -14,7 +14,7 @@ int main()
     scanf("%d",n5);
     if(n1<=n2 && n1!=n2 && n2<n3 && n2!=n3 && n3<n4 && n3!=n4 && n4<n5 && n4!=n5)
     {
-        printf("I numeri inseriti appartengono alla sequenza di numeri naturali");
+        printf("I numeri inseriti appartengono alla sequenzaquenza di numeri naturali");
     }
     else
     {
