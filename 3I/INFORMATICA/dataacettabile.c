@@ -24,7 +24,7 @@ int main()
     {
         if(m==2)
         {
-            if(g=>1 && g<=28+bisestile);
+            if(g>=1 && g<=28+bisestile);
             {
                 printf("La data è acettabile");             
             }
