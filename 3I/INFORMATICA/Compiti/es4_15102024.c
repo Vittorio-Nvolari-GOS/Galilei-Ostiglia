@@ -18,7 +18,7 @@ int main()
     scanf("%d",&seme2);
     printf("Inserisci il numero o simbolo della seconda carta: \t");
     scanf("%d",&carta2);
-    if()
+    
 
 
 }
