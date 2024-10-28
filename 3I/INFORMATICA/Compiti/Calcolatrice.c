@@ -9,15 +9,15 @@ int main()
     char  calc;
     
     printf("Inserisci il primo nuemro: \t");
-    scanf("%f",&num1);
+    scanf("%f", &num1);
     printf("Inserisci il primo nuemro: \t");
-    scanf("%f",&num2);
+    scanf("%f", &num2);
     printf("seleziona il tipo di operazione");
     printf("\n a: somma");
     printf("\n b: sottrazione");
     printf("\n c: moltiplicazione");
     printf("\n d: divisione");
-    scanf("%c",calc);
+    scanf("%c", &calc);
     
     switch (calc)
     {
