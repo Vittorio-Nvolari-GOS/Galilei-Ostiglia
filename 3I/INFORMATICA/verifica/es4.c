@@ -9,7 +9,7 @@ int main()
     scanf("%d", &n1);
     
     ope=n1/2;
-    if(ope==0)
+    if((ope%2)==0)
         flag=+1;
         ope1=ope/2;
         if(ope1==0)
