@@ -41,7 +41,7 @@ int main ()
         else
         {
             ope=n1-n2;
-            printf("La differenza è %f",ope)
+            printf("La differenza è %f",ope);
         }
         break;
     case 3:
@@ -65,8 +65,16 @@ int main ()
         
         break;
     case 4:
-        ope=(int)n1%n2;
-        
+        int ope3=0,ope4=0;
+        ope3=(float)n1%n2;
+        ope4=(float)n2%n1;
+        if(ope3==0)
+            printf("Il secondo numero è il multiplo del primo");
+        else if(ope4==0)
+           printf("Il primo numero è il multiplo del secondo");
+        else
+            printf("Nessuno dei due numeri è il multiplo dell'altro");
+
         break;
     
     default:

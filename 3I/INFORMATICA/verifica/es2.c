@@ -4,5 +4,11 @@
 #include <stdio.h>
 int main()
 {
-    int n1=0
+    int n1=0,ope=0;
+    printf("Inserisci il numero \t");
+    scanf("%d", &n1);
+    ope=n1%2
+    if(ope==0)
+        printf("Il numero ")
+
 }
