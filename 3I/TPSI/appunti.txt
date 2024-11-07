@@ -1,0 +1,23 @@
+L'html è un linguaggio di matk up , ovvero vieno scritto attraverso dei tag
+
+tag
+
+<p> opening tag
+
+</p> closing tag
+
+footer= pie' di pagina in un sito
+
+etensione di un file: .exe .html .pdf nome file.html estensione di un file
+
+<br /> si usa per andare a capo
+
+<b>questa</b> per parola in grassetto
+
+<mark>pagina html</mark> per evidenziare
+
+<h6> GIUSEPPE MAZZINI </h6> per ingrandire il carattere h6 (piu piccolo) h1(piu grande)
+
+<img src="inter.png"> = per inserire immagine, poi mettere tra virgolette il nome del file
+
+<hr> per inserire una riga
