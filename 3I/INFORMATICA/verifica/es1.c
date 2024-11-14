@@ -13,7 +13,21 @@ int main()
     scanf("%d", &n1);
     if(n1>=0 && n1<=9999)
     {
-        int c1=0,d1=0,m1=0,
+        int c1=0,d1=0,m1=0,  /*if(q!=0)
+                             {
+                                r=q%10;
+                                q=q/10;
+                                cntc++;
+                             }
+                             else
+                             {
+                                printf("hai il serito il numero 0 il programma verrà terminato");
+                                cntc++;
+                                if(numero==0)
+                                    cntn++;
+                            
+                             }
+                             */
         m=n1%10000;
         c=(m/10)%1000;
         d=(c/10)%100;
