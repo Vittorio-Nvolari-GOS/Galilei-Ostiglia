@@ -1,0 +1,8 @@
+-per inizializzare la partizione virtuale :
+    mount t: z:/tasm/bin
+-"dir"per cercare o per visualizare il contenuto della cartella
+-"cls" per pulire il terminale 
+-"rescan"per aggionare i contenuti delle cartelle 
+-"tasm"per compilare il file 
+-"tlink" è la fase di link
+-"td" turbo debugger
