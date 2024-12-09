@@ -7,7 +7,7 @@ int main()
 
     do
     {
-        for (i= 0; i!=4 ; i++)
+        /*for (i= 0; i!=4 ; i++)
         {
             printf("Insrisci un numero:\t");
             scanf("%d", &num);
@@ -16,9 +16,11 @@ int main()
             
         }
         printf("Il risultato è: %d\n",somma);
+
+        somma=0;*/
         
         
-        /*printf("Insrisci un numero:\t");
+        printf("Insrisci un numero:\t");
         scanf("%d", &n1);
         printf("Insrisci un numero:\t");
         scanf("%d", &n2);
@@ -29,7 +31,7 @@ int main()
 
         somma=n1+n2+n3+n4;
         
-        printf("Il risultato è: %d\n",somma);*/
+        printf("Il risultato è: %d\n",somma);
     } while (n1!=0 || n2!=0 || n3!=0 || n4!=0 || num!=0);
     
 }
