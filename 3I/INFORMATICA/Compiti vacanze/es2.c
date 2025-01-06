@@ -11,35 +11,51 @@ Il programma riceve da tastiera un numero intero N e visualizza le prime N righe
 */
 
 #include <stdio.h>
-int main(){
-    int n, cifra=1;
-    do{
-        printf("Inserisci un numero: ");
-        scanf("%d", &n);
+int main()
+{
+    int num=0,num2=1,i,c;
+    
+    do
+    {
+        printf("Inserisci un numero:\t ");
+        scanf("%d", &num);
 
-    }while(n<0);
+    }while(num<0);
 
-    for(int i=1; i<=n; i++){
-        if(i>=2){
-            if(i%2==0){
-                cifra=cifra+n-1;
+    
+    
+    
+    for(i=1; i<=num; i++)
+    {
+        
+        if(i>=2)
+        {
+            if(i%2==0)
+            {
+                num2=num2+num-1;
             }
             else{
-                cifra=cifra+n+1;
+                num2=num2+num+1;
             }
         }
-        if(i%2==1){
-            for(int j=1; j<=n; j++){
-                printf("%d ", cifra);
-                cifra++;
+
+        if(i%2==1)
+        {
+            for(c=1; c<=num; c++)
+            {
+                printf("%d ",num2);
+                num2+=1;
             }
         }
-        else{
-            for(int j=1; j<=n; j++){
-                printf("%d ", cifra);
-                cifra--;
+        else
+        {
+            for(c=1; c<=num; c++)
+            {
+                printf("%d ",num2);
+                num2-=1;
             }
         }
+        
         printf("\n");
     }
     

@@ -16,8 +16,8 @@ Suggerisci come potresti estendere il programma per utilizzare anche altre monet
 #include<stdio.h>
 int main ()
 {
-    int prodotto=0,selezione=0, risposta=0, i;
-    float resto=0, costo=0,creditoi=0,ope=0;
+    int prodotto=0,selezione=0, risposta=0, i,mone1=0,mone5=0;
+    float resto=0, costo=0,creditoi=0,ope=0,ope2=0;
 
 
     do
@@ -76,7 +76,7 @@ int main ()
         printf("1_0.01$\n2_0.05$\n3_0.10$\n4_0.20$\n5_0.50$\n0_finie selezione\n");
         scanf("%d", &selezione);
 
-        switch (prodotto)
+        switch (selezione)
         {
             case 1:
                 printf("quante ne vuoi inserire ?\t");
@@ -151,9 +151,24 @@ int main ()
     
     if(ope<0)
     {
-        resto*=1;
-
-        printf("Il resto è di %0.2f",resto);
+        resto=ope*-1;
+        printf("Il resto è di %0.2f\n",resto);
+                    
+        do
+        {
+            if(resto>=0.05)
+            {
+                resto-=0.05;
+                mone5+=1;
+            }
+            else
+            {
+                resto-=0.01;
+                mone1+=1;
+            }
+        } while (resto>0);
+                
+        printf("Sono %d monete da 0.05$ e %d monete da 0.01$ \n",mone5,mone1);
         printf("Grazie mille arrivederci");
 
     }
@@ -177,7 +192,7 @@ int main ()
                 printf("1_0.01$\n2_0.05$\n3_0.10$\n4_0.20$\n5_0.50$\n0_finie selezione\n");
                 scanf("%d", &selezione);
 
-                switch (prodotto)
+                switch (selezione)
                 {
                 case 1:
                         printf("quante ne vuoi inserire ?\t");
@@ -252,9 +267,26 @@ int main ()
         
             if(ope<0)
             {
-                resto*=1;
+                resto=ope*-1;
+                printf("Il resto è di %0.2f\n",resto);
+                    
+                do
+                {
+                    if(resto>=0.05)
+                    {
+                        resto-=0.05;
+                        mone5+=1;
+                    }
+                    else
+                    {
+                        resto-=0.01;
+                        mone1+=1;
+                    }
+                } while (resto>0);
+                        
+                printf("Sono %d monete da 0.05$ e %d monete da 0.01$ \n",mone5,mone1);
+                printf("Grazie mille arrivederci");
 
-                printf("Il resto è di %f",resto);
 
             }
 
