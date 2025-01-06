@@ -17,12 +17,12 @@ Suggerisci come potresti estendere il programma per utilizzare anche altre monet
 int main ()
 {
     int prodotto=0,selezione=0, risposta=0, i;
-    float resto=0, costo=0,creditoi=0;
+    float resto=0, costo=0,creditoi=0,ope=0;
 
 
     do
     {
-        printf("_____Scegli tra le i seguenti prodotti_____\n\n");
+        printf("_____Scegli tra i seguenti prodotti_____\n\n");
         printf("1.CocaCola\n2.Patatine\n3.Cioccolato\n4.Baretta\n5.Acqua\n");
         scanf("%d", &prodotto);
     } while (prodotto<=0 || prodotto>5);
@@ -32,7 +32,7 @@ int main ()
     case 1:
         printf("Il prezzo del prodotto selezionato è 1.00$ ");
 
-        costo=1;
+        costo=1.00;
         
         break;
     
@@ -46,104 +46,232 @@ int main ()
     case 3:
         printf("Il prezzo del prodotto selezionato è 2.50$ ");
 
-        costo=2.5;
+        costo=2.50;
         
         break;
     
     case 4:
         printf("Il prezzo del prodotto selezionato è 2.00$ ");
 
-        costo=2;
+        costo=2.00;
         
         break;
     
     case 5:
         printf("Il prezzo del prodotto selezionato è 1.00$ ");
         
-        costo=1;
+        costo=1.00;
 
         break;
     
     
     default:
-        print("C'è stato un probblema di elaborazione");
+        printf("C'è stato un probblema di elaborazione");
         break;
     }
 
     do
     {
-        printf("_____Scegli tra le i seguenti prodotti_____\n\n");
-        printf("1_0.01$\n2_0.05$\n3_0.10$\n4_0.20$\n5_0.50$\n0_finie selezione");
+        printf("\n_____Scegli tra le seguenti monete_____\n\n");
+        printf("1_0.01$\n2_0.05$\n3_0.10$\n4_0.20$\n5_0.50$\n0_finie selezione\n");
         scanf("%d", &selezione);
 
         switch (prodotto)
         {
-        case 1:
-            printf("quante ne vuoi inserire ?");
-            scanf("%d", &risposta);
+            case 1:
+                printf("quante ne vuoi inserire ?\t");
+                scanf("%d", &risposta);
 
-            for ( i = 0; i < risposta; i++)
-            {
-                creditoi+=0.01;
-            }
-            
+                for ( i = 0; i < risposta; i++)
+                {
+                    creditoi+=0.01;
+                }
+                    
+                        
                 
-        
-            break;
-    
-        case 2:
-            printf("quante ne vuoi inserire ?");
-            scanf("%d", &risposta);
-
-            for ( i = 0; i < risposta; i++)
-            {
-                creditoi+=0.05;
-            }
+                break;
             
-            break;
-    
-        case 3:
-            printf("quante ne vuoi inserire ?");
-            scanf("%d", &risposta);
+            case 2:
+                printf("quante ne vuoi inserire ?\t");
+                scanf("%d", &risposta);
 
-            for ( i = 0; i < risposta; i++)
-            {
-                creditoi+=0.10;
-            }
+                for ( i = 0; i < risposta; i++)
+                {
+                    creditoi+=0.05;
+                }
+                    
+                break;
             
-            break;
-        
-        case 4:
-            printf("quante ne vuoi inserire ?");
-            scanf("%d", &risposta);
+            case 3:
+                printf("quante ne vuoi inserire ?\t");
+                scanf("%d", &risposta);
 
-            for ( i = 0; i < risposta; i++)
-            {
-                creditoi+=0.20;
-            }
-            
-            break;
-        
-        case 5:
-            printf("quante ne vuoi inserire ?");
-            scanf("%d", &risposta);
+                for ( i = 0; i < risposta; i++)
+                {
+                    creditoi+=0.10;
+                }
+                    
+                break;
+                
+            case 4:
+                printf("quante ne vuoi inserire ?\t");
+                scanf("%d", &risposta);
 
-            for ( i = 0; i < risposta; i++)
-            {
-                creditoi+=0.50;
-            }
-            
-            break;
-        
-        
-        default:
-            print("C'è stato un probblema di elaborazione");
-            break;
+                for ( i = 0; i < risposta; i++)
+                {
+                    creditoi+=0.20;
+                }
+                    
+                break;
+                
+            case 5:
+                printf("quante ne vuoi inserire ?\t");
+                scanf("%d", &risposta);
+
+                for ( i = 0; i < risposta; i++)
+                {
+                    creditoi+=0.50;
+                }
+                    
+                break;
+            case 0:
+                break;
+                
+                
+            default:
+                printf("C'è stato un probblema di elaborazione");
+                break;
         }
 
 
 
     } while (selezione!=0);
+
+    ope=costo-creditoi;
+    
+    if(ope<0)
+    {
+        resto*=1;
+
+        printf("Il resto è di %0.2f",resto);
+        printf("Grazie mille arrivederci");
+
+    }
+
+    if (ope==0)
+    {
+        printf("Grazie mille arrivederci");
+    }
+    
+    do
+    {
+    
+    
+        if(ope>0)
+        {
+            printf("Mancano ancora %0.2f$ , inserire il credito mancante",ope);
+
+            do
+            {
+                printf("\n_____Scegli tra le seguenti monete_____\n\n");
+                printf("1_0.01$\n2_0.05$\n3_0.10$\n4_0.20$\n5_0.50$\n0_finie selezione\n");
+                scanf("%d", &selezione);
+
+                switch (prodotto)
+                {
+                case 1:
+                        printf("quante ne vuoi inserire ?\t");
+                        scanf("%d", &risposta);
+
+                        for ( i = 0; i < risposta; i++)
+                        {
+                            creditoi+=0.01;
+                        }
+                        
+                            
+                    
+                        break;
+                
+                    case 2:
+                        printf("quante ne vuoi inserire ?\t");
+                        scanf("%d", &risposta);
+
+                        for ( i = 0; i < risposta; i++)
+                        {
+                            creditoi+=0.05;
+                        }
+                        
+                        break;
+                
+                    case 3:
+                        printf("quante ne vuoi inserire ?\t");
+                        scanf("%d", &risposta);
+
+                        for ( i = 0; i < risposta; i++)
+                        {
+                            creditoi+=0.10;
+                        }
+                        
+                        break;
+                    
+                    case 4:
+                        printf("quante ne vuoi inserire ?\t");
+                        scanf("%d", &risposta);
+
+                        for ( i = 0; i < risposta; i++)
+                        {
+                            creditoi+=0.20;
+                        }
+                        
+                        break;
+                    
+                    case 5:
+                        printf("quante ne vuoi inserire ?\t");
+                        scanf("%d", &risposta);
+
+                        for ( i = 0; i < risposta; i++)
+                        {
+                            creditoi+=0.50;
+                        }
+                        
+                        break;
+                    case 0:
+                        break;
+                    
+                    
+                    default:
+                        printf("C'è stato un probblema di elaborazione");
+                        break;
+                }
+
+
+
+            } while (selezione!=0);
+
+            ope=costo-creditoi;
+        
+            if(ope<0)
+            {
+                resto*=1;
+
+                printf("Il resto è di %f",resto);
+
+            }
+
+            if (ope==0)
+            {
+                printf("Grazie mille arrivederci");
+            }
+
+        }
+    }while (ope>0);
+   
+    
+    
+
+
+
+    
     
     
     
