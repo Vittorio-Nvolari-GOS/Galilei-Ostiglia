@@ -5,11 +5,24 @@
  #include <stdio.h>
  int main ()
     {
-        int div=0,num=1,i;
+        int som=0,i,j;
 
-        for ( i = 0; i < ; i++)
+        for ( i = 1; i < 500; i++)
         {
             
+            for ( j = 1; j <= i/2; j++)
+            {
+                
+                if(i%j==0)
+                {
+                    som+=j;
+                }
+            }
+            if (som==i)
+            {
+                printf("il numero %d è perfetto\n",i);
+            }
+            som=0;
         }
         
     }
