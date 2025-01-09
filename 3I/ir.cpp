@@ -2,7 +2,7 @@
 #include <IRremote.h>
 #include <LittleFS.h>
 
-const int RECV_PIN = 36; // Pin di ricezione IR per M5StickC Plus
+const int RECV_PIN = 26; // Pin di ricezione IR per M5StickC Plus
 IRrecv irrecv(RECV_PIN);
 decode_results results;
 
