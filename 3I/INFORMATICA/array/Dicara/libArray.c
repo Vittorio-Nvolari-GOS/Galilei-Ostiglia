@@ -78,15 +78,19 @@ void riempiVettoreOrdinatoCasuale(int vett[], int dim, int minimo, int massimo) 
     }
 }
 
-void scambiaVettori(int *_vett1[],int  *_vett2[],int  _dim)
+void scambiaVettori(int _vett1[],int _vett2[],int  _dim1, int _dim2)
 {
     int temp=0;
-    for (int i = 0; i < _dim; i++)
+    if(_dim1==_dim2)
     {
-        temp=*_vett1[i];
-        *_vett1[i]=*_vett2[i];
-        *_vett2[i]=temp;
+        for (int i = 0; i < _dim1; i++)
+        {
+            temp=_vett1[i];
+            _vett1[i]=_vett2[i];
+            _vett2[i]=temp;
+        }
     }
+    
     
 } 
 

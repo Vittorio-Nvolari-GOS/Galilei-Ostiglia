@@ -84,6 +84,6 @@ int trovaPosizione (int vett[], int dim, int num);
  * @param int[] Secondo vettore
  * @param int Dimensione del vettore
  */
-void scambiaVettori(int *_vett1[],int  *_vett2[],int _dim);
+void scambiaVettori(int _vett1[],int _vett2[],int _dim1,int _dim2);
 
 

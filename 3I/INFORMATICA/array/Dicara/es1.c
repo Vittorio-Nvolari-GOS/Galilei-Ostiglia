@@ -5,24 +5,25 @@
 #include <stdio.h>
 #include "libArray.c"
 #include "libArray.h"
-#define DIM 10 
+#define DIM1 10 
+#define DIM2 10 
 
 
 int main()
 {
-    int v1[DIM]={0}, v2[DIM]={0};
+    int v1[DIM1]={0}, v2[DIM2]={0};
 
     printf("Riempi il primo vettore\n");
-    riempiVettore(&v1,DIM);
+    riempiVettore(&v1,DIM1);
     printf("Riempi il secondo vettore\n");
-    riempiVettore(&v2,DIM);
+    riempiVettore(&v2,DIM2);
 
-    scambiaVettori(&v1,&v2,DIM);
+    scambiaVettori(&v1,&v2,DIM1,DIM2);
 
-    printf("Primo vettore:");
-    stampaVettore(v1,DIM,' ');
-    printf("Sencondo vettore:");
-    stampaVettore(v2,DIM,' ');
+    printf("Primo vettore: ");
+    stampaVettore(v1,DIM1,' ');
+    printf("Sencondo vettore: ");
+    stampaVettore(v2,DIM2,' ');
 
 
 
