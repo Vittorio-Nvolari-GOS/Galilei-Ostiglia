@@ -86,4 +86,9 @@ int trovaPosizione (int vett[], int dim, int num);
  */
 void scambiaVettori(int _vett1[],int _vett2[],int _dim1,int _dim2);
 
-
+/**
+ * Funzione che permette di riordinare il vettore
+ * @param int[] vettore
+ * @param int Dimensione del vettore
+ */
+void bubbleSort(int _vet[], int _dim);

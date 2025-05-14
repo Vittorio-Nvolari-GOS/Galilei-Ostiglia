@@ -94,3 +94,41 @@ void scambiaVettori(int _vett1[],int _vett2[],int  _dim1, int _dim2)
     
 } 
 
+void bubbleSort(int _vet[], int _dim){
+
+    int temp=0,f=0;
+
+    while (f==1)
+    {
+        for (int i = 0; i < _dim; i++)
+        {
+            for (int j = 0; J < _dim; j++)
+            {
+                if(_vet[j]>_vet[j+1]);
+                {
+                    temp=_vet[]
+                }
+            }
+            
+        }
+        
+    }
+    
+}
+
+void scambioMinMax(int vett[], int dim)
+{
+    int mint=0, max=0;
+
+    min=vett[0];
+    max=vett[0];
+    for(int i=1 ; i<dim ; i++)
+    {
+        ifmin = vett[i];
+    
+    
+    }
+    
+}
+
+
