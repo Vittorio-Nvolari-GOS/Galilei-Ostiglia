@@ -18,24 +18,30 @@ int main()
 
 
     printf("Matrice originale: \n");
-    for (i = 0; i < D; i++) {
-        for (j = 0; j < D; j++) {
-            printf("%3d ", m1[i][j]);
+    for (i = 0; i < D; i++) 
+    {
+        for (j = 0; j < D; j++) 
+        {
+            printf("%d ", m1[i][j]);
         }
         printf("\n");
     }
 
     
-    for (i = 0; i < D; i++) {
+    for (i = 0; i < D; i++) 
+    {
         temp = m1[i][i];                       
         m1[i][i] = m1[i][D - 1 - i];          
         m1[i][D - 1 - i] = temp;
     }
 
-    printf("\nMatrice dopo lo scambio delle diagonali:\n");
-    for (i = 0; i < D; i++) {
-        for (j = 0; j < D; j++) {
-            printf("%3d ", m1[i][j]);
+    printf("\nMatrice dopo lo scambio:\n");
+
+    for (i = 0; i < D; i++) 
+    {
+        for (j = 0; j < D; j++) 
+        {
+            printf("%d ", m1[i][j]);
         }
         printf("\n");
     }
