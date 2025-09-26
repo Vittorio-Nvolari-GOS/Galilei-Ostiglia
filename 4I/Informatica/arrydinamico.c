@@ -17,7 +17,7 @@ int main()
 {
     int *numer=NULL;  // Array dinamico
     int dimensione=0; //dimensione arry
-    int scelta,i,n,trovato=0;
+    int scelta,i,n,j,trovato=0;
     
     do
     {
@@ -51,6 +51,7 @@ int main()
             case 3:
                 printf("Digita il numero da cercare: ");
                 scanf("%d", &n);
+                trovato=0;
                 for ( i = 0; i < dimensione; i++)
                 {
                     if(numer[i]==n)
@@ -66,7 +67,25 @@ int main()
                 
                 break;
             case 4:
-                //
+                for (i = 0; i < dimensione - 1; i++) 
+                {
+                    for (j = 0; j < dimensione - i - 1; j++) 
+                    {
+                        if (numer[j] > numer[j+1]) 
+                        {
+                            int tmp = numer[j];
+                            numer[j] = numer[j+1];
+                            numer[j+1] = tmp;
+                        }
+                    }
+                }
+                // Visualizza
+                printf("Numeri ordinati:\n");
+                for (i = 0; i < dimensione; i++)
+                {
+                    printf("%d ", numer[i]);
+                }
+                printf("\n");
                 break;
             case 5:
                 //
