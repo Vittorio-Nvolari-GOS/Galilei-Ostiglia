@@ -21,3 +21,5 @@ etensione di un file: .exe .html .pdf nome file.html estensione di un file
 <img src="inter.png"> = per inserire immagine, poi mettere tra virgolette il nome del file
 
 <hr> per inserire una riga
+
+php -S localhost:8080 -t ./
