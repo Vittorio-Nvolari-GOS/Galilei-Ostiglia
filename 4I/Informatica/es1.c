@@ -11,7 +11,7 @@
 #include <stdio.h>
 int N ;
 
-int* creaArry()
+int* creaArray()
 {
     N=0;
     do
@@ -33,42 +33,76 @@ int* creaArry()
 
 }
 
-int* riepVet(int *_arry)
+int* riepVet(int *_array)
 {
     for (int i = 0; i < N; i++)
     {
         printf("Inserisci un valore:  ");
-        scanf("%d", &_arry[i]);
+        scanf("%d", &_array[i]);
     }
-    return _arry;
+    return _array;
 }
 
-void stampVet(int *_arry)
+void stampVet(int *_array)
 {
     for (int i = 0; i < N; i++)
     {
-        printf("%d", _arry[i]);
+        printf("%d", _array[i]);
         printf("\n");
     }
     
 }
 
-int somM3()
+int* somM3(int *_array)
 {
+    int som=0;
+    for (int i = 0; i < N; i++)
+    {
+        if(_array[i]%3==0)
+            som+=_array[i];
 
+    }
+    
 
 }
+
+int estraiDispar(int *_array,int *_dispari)
+{
+    int *_dispari=NULL;
+    *_dispari=0; 
+
+        for(int i=0; i<N; i++){
+            if(_array[i]%2!=0){
+                (*_dispari)++;
+                int tmp=realloc(_dispari, (_dispari)*sizeof(int));
+                if(tmp==NULL){
+                    printf("Errore di allocazione!\n");
+                    free(_dispari);
+                    return NULL;
+                }
+                _dispari=tmp;
+                _dispari[(*_dispari)-1]=_array[i];
+            }
+        }
+    return _dispari;
+}
+
 
 int main()
 {
     int *vettore=NULL; // puntatore
     
 
-    vettore=creaArry();
+    vettore=creaArray();
     vettore=riepVet(vettore);
     stampVet(vettore);
+    printf("%d",somM3(vettore));
 
+
+
+    
     free(vettore);
+
 
 
 
