@@ -11,7 +11,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 int N=0;
-void stampaVet(int *_Array)
+void stampaVet()
 {
     for (int i = 0; i < N; i++)
     {
@@ -20,22 +20,51 @@ void stampaVet(int *_Array)
     
 }
 
-int riempiArry(int *_Array)
+void dimeArray(Int *_Array)
 {
-    for (int i = 0; i < N; i++)
+    printf("Inserisci la grandezza dell'array: ");
+    scanf("%d", &N);
+    _Array=(int*)malloc(N*sizeof(int));
+    if(_Array==NULL)
     {
-        printf("Insrisci valore:  ");
-        scanf("%d", *_Array[i]);
+        printf("Errore di Allocazione!!");
+        return 1;
     }
     
 }
 
+int* riempiArry(int *_Array)
+{
+    for (int i = 0; i < N; i++)
+    {
+        printf("Insrisci valore:  ");
+        scanf("%d", _Array[i]);
+    }
+    
+}
+
+int* aumentaDim(int *_Array )
+{
+    int nuovaDim=0;
+    int *_aumenta=NULL;
+    do
+    {
+        printf("inserisci una nuova dimensione: ");
+        scanf("%d", &nuovaDim);
+        _aumenta=(int*) realloc(_Array, nuovaDim *sizeof(int));
+        for(int i=N; i<nuovaDim; i++){
+            printf("inserisci nuovi valori: ");
+            scanf("%d", &_aumenta[i]);
+        }
+    }while(nuovaDim!=N);
+    return _aumenta;
+}
 
 
 
 int main()
 {
-    int *vdv;
+    int *vdv=NULL;
     int risposta=0;
     do
     {
@@ -46,29 +75,11 @@ int main()
         printf("4.Aumenta Dimensione Array");
         printf("5.Stampa vettore");
         printf("6.Exit");
-        switch (risposta)
-        {
-            case 1:
-                /* code */
-                break;
-            case 2:
-                /* code */
-                break;
-            case 3:
-                /* code */
-                break;
-            case 4:
-                /* code */
-                break;
-            case 5:
-                /* code */
-                break;
-            case 6:
-                exit;
-                break;
-        }
+    
+        dimeArray(vdv);
 
-    } while (risposta==6);
+        vdv=riempiArry(vdv);
+
     
     
 
