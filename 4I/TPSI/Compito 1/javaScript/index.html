@@ -1,19 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>CAZZOOOO</title>
-    <script>
-        function mostraORA()
-        {
-            var d = new Date();
-            var ora = d.toLocalTimeString(); 
-            allert(ora);
-        }
-    </script>
-</head>
-<body>
-    <form>
-        <input type="button" onclick="mostraORA();" value="Che ora è?">
-    </form>
-</body>
+<html>
+    <head>
+        <title>JavaScript</title>
+        <script>
+            function mostraORA()
+            {
+                var d = new Date();
+                var ora = d.toLocaleTimeString(); 
+                //alert(ora);
+                document.body.innerHTML += "<p>l'ora attuale è: </p>";
+                document.body.innerHTML += ora;
+            }
+        </script>
+    </head>
+    <body>
+        <form>
+            <input type="button" onclick="mostraORA()" value="Che ora è?">
+        </form>
+    </body>
 </html>

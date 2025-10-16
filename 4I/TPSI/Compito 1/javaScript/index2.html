@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TEXT AREA</title>
+        <style>
+            #output
+            {
+                width: 300px;
+                height: 200px;
+                border: 2px solid red;
+            }
+        </style>
+        <script>
+            function scrivi()
+            {
+                document.getElementById("output").innerHTML = description.value;
+            }
+        </script>
+        
+    </head>
+    <body>
+        <form name="moduli">
+            <label>Lascia un commeto</label>
+            <input type="text" id="description" name="description" maxlength="200"></input>
+            </br></br></br>
+            <input type="button" value="clicca" onclick="scrivi()"></input>
+            <div id="output"></div>
+
+
+        </form>
+    </body>
+</html>
