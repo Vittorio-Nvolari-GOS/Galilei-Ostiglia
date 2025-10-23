@@ -1,0 +1,57 @@
+<!--   1) creiamo una test area dove inseriamo un messaggio 
+    2) creiamo una text area dove inseriamo il colore da attribuire al testo
+    3) creiamo una div (w: 400px, h:300px bordo 1px solid black)
+    4) creiamo un pulsante che copi il messaggio scritto all'internodella div 
+    5) creiamo un pulsante che schiacciandolo colora il testo della div delcolore inserito
+    6) creiamo un pulsante che schiacciandolo aumenta la width della div   
+    7) creiamo un pulsante che schiacciandolo diminuisce la width della div
+    --> 
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Esercasd</title>
+        <style>
+            #output
+            {
+                width: 400px;
+                height: 300px;
+                border: 1px solid rgb(0, 0, 0);
+            }
+        </style>
+        <script>
+            function scrivi()
+            {
+                document.getElementById("output").innerHTML = description.value;
+                
+            }
+            function colora()
+            {
+                var msg = document.getElementById("description").value;
+                var color = document.getElementById("color").value;
+
+                document.getElementById("output").innerHTML = msg;
+                document.getElementById("output").style.color = color;
+                
+
+
+
+            }
+        </script>
+        
+    </head>
+    <body>
+        <form name="moduli">
+            <label>Lascia un commeto</label>
+            <input type="text" id="description" name="description" maxlength="200"></input>
+            </br></br>
+            <label>Colore</label>
+            <input type="text" id="color" name="colore" ></input>
+            </br></br></br>
+            <input type="button" value="clicca" onclick="colora()"></input>
+            <div id="output"></div>
+
+
+        </form>
+    </body>
+</html>

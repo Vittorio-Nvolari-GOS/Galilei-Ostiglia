@@ -28,6 +28,7 @@ Stringa eliminaSpazzi(Stringa _frase)
             {
                 _frase[i]=_frase[j+1];
                 dim--;
+                _frase=realloc(_frase,dim*sizeof(char*));
 
             }
             
