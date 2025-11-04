@@ -20,6 +20,10 @@
             }
         </style>
         <script>
+            var dimCarattere=15;
+            var width= 400;
+            var height= 300;
+            
             function scrivi()
             {
                 document.getElementById("output").innerHTML = description.value;
@@ -37,6 +41,44 @@
 
 
             }
+            function allargaCarattere()
+            {
+                dimCarattere++;
+                var msg = document.getElementById("description").value;
+                
+
+                document.getElementById("output").style.fontSize = dimCarattere + "px";
+
+
+
+            }
+            function riducigaCarattere()
+            {
+                dimCarattere--;
+                var msg = document.getElementById("description").value;
+                
+
+                document.getElementById("output").style.fontSize = dimCarattere + "px";
+
+            }
+            function aumentaDiv()
+            {
+                
+                width+= 30;
+                height+= 30;
+                document.getElementById("output").style.height= height + "px"
+                document.getElementById("output").style.width= width + "px"
+
+            }
+             function riduciDiv()
+            {
+                
+                width-= 30;
+                height-= 30;
+                document.getElementById("output").style.height= height + "px"
+                document.getElementById("output").style.width= width + "px"
+
+            }
         </script>
         
     </head>
@@ -49,7 +91,15 @@
             <input type="text" id="color" name="colore" ></input>
             </br></br></br>
             <input type="button" value="clicca" onclick="colora()"></input>
+            </br></br></br>
+            <input type="button" value="Aumenta carattere" onclick="allargaCarattere();">
+            <input type="button" value="Riduci carattere" onclick="riducigaCarattere();">
+            </br></br></br>
+            <input type="button" value="Aumenta div" onclick="aumentaDiv();">
+            <input type="button" value="Riduci div" onclick="riduciDiv();">
+            </br></br></br>
             <div id="output"></div>
+            
 
 
         </form>
