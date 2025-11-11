@@ -6,7 +6,9 @@ typedef char* String;
 
 void Nome(String _nome)
 {
-    for (int i = 0; i < 3; i++)
+    int len=0;
+    len=strlen(_nome);
+    for (int i = 0; i < len; i++)
     {
         if(_nome[i]!='A','E','I','O','U','a','i','o','u')
             _nome[i]=_nome[i];
@@ -17,7 +19,9 @@ void Nome(String _nome)
 
 void Cognome(String _cognome)
 {
-    for (int i = 0; i < 3; i++)
+    int len=0;
+    len=strlen(_cognome);
+    for (int i = 0; i < len; i++)
     {
         if(_cognome[i]!='A','E','I','O','U','a','i','o','u')
             _cognome[i]=_cognome[i];
@@ -102,22 +106,39 @@ void Mese(String _mese)
     realloc(_mese,2*sizeof(char));
 }
 
-void Anno(int _anno)
+void Anno(String _anno)
 {
-    _anno[3]
+    _anno[0]=_anno[2];
+    _anno[1]=_anno[3];
+    realloc(_anno,3*sizeof(char));
+}
+
+String CodiceFiscale(String _nome,String _cognome,String _giorno,String _mese,String _anno,String _Comune)
+{
+    String _codice=malloc(17*sizeof(char));
+    Nome(_nome);
+    Cognome(_cognome);
+    Mese(_mese);
+    Anno(_anno);
+    strcat(_codice,_cognome);
+    strcat(_codice,_nome);
+    strcat(_codice,_anno);
+    strcat(_codice,_mese);
+    strcat(_codice,_giorno);
+    strcat(_codice,_Comune);
+
+    return _codice;
 
 }
 
-
-
 int main()
 {
-    char Codice[17];
-    char Nome[30];
-    char Cognome[30];
-    int* Giorno=0;
-    char mese[30];
-    int* anno[4]=0;
+    //char Codice[17];
+    String Nome=malloc(30*sizeof(char));
+    String Cognome=malloc(30*sizeof(char));
+    String Giorno=malloc(30*sizeof(char));
+    String mese=malloc(30*sizeof(char));
+    String anno=malloc(30*sizeof(char));
     String Comune="G186";
 
     printf("Inserisci il tuo nome:\n");
@@ -125,13 +146,13 @@ int main()
     printf("Inserisci il tuo cognome:\n");
     fgets(Cognome, 30, stdin);
     printf("Inserisci il tuo giorno di nascita(se ha una cifra aggiungi 0): \n");
-    scanf("%d",&Giorno);
-    printf("Inserisci il tuo cognome:\n");
+    fgets(Giorno, 5, stdin);
+    printf("Inserisci il tuo mese di nascita:\n");
     fgets(mese, 30, stdin);
     printf("Inserisci il tuo anno di nascita: \n");
-    scanf("%d",&anno);
+    fgets(anno, 5, stdin);
 
-
+    printf("il codice fiscale è: %s",CodiceFiscale(Nome,Cognome,Giorno,mese,anno,Comune));
 
 
 
