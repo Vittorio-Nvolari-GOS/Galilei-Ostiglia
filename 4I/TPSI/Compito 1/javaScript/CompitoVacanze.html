@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Compiti Vacanze</title>
+        <script>
+            function somma ()
+            {
+                const input1= document.getElementById("num1");
+                const input2= document.getElementById("num2");
+                const risultato = document.getElementById("risultato");
+
+            
+                const valore1 = parseFloat(input1.value);
+                const valore2 = parseFloat(input2.value);
+
+                const somma = valore1 + valore2;
+                risultato.textContent = somma;
+
+                if(somma%2==0)
+                {
+                    document.bgColor="Red";
+                    alert("Risultato pari");
+                }
+                else
+                {
+                    document.bgColor="blue";
+                    alert("Risultato dispari")
+                }
+            }
+            
+        </script>
+    </head>
+    <body>
+         <h2>Somma di due numeri</h2>
+        <input type="number" id="num1" placeholder="inserisci il primo numero" name="num1">
+        <input type="number" id="num2" placeholder="inserisci il secondo numero" name="num2">
+        <br><br>
+        <button id="somma" onclick="somma();" >Calcola Somma</button>
+        <!--<input type=button value=calcola somma>-->
+        <br><br>
+        <label>Risultato: </label><div id="risultato">0</div>
+    </body>
+</html>

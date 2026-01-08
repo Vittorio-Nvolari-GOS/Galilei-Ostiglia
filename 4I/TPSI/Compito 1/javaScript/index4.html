@@ -4,16 +4,16 @@
         <script>
             const input1= document.getElementById("num1");
             const input2= document.getElementById("num2");
-            const bottone = document.getElementById("somma");
             const risultato = document.getElementById("risultato");
 
-            bottone.addEventListener("click", function(){
-                const valore1 = parseFloat(input1.value);
-                const valore2 = parseFloat(input2.value);
+
+                const valore1 = parseFloat(input1.value) || 0;
+                const valore2 = parseFloat(input2.value) || 0;
 
                 const somma = valore1 + valore2;
                 risultato.textContent = somma;
-            })
+
+            
         </script>
     </head>
     <body>
