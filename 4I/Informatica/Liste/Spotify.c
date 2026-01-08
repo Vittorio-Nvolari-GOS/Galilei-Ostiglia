@@ -47,14 +47,14 @@ int main() {
     do 
     {
         printf("\n===== SPOTIFY 0.0.0.1 =====\n");
-        printf("1. Inserisci nuova canzone nella lista\n");
-        printf("2. Stampa lista canzoni\n");
-        printf("3. Cerca canzoni per artista\n");
-        printf("4. Aggiungi canzone alla playlist\n");
-        printf("5. Stampa playlist\n");
-        printf("6. Cancella canzone dalla playlist\n");
-        printf("0. Esci\n");
-        printf("Scelta: ");
+        printf("1. Insert new song into the list\n");
+        printf("2. Print song list\n");
+        printf("3. Search songs by artist\n");
+        printf("4. Add song to playlist\n");
+        printf("5. Print playlist\n");
+        printf("6. Delete song from playlist\n");
+        printf("0. Exit\n");
+        printf("Chose: \n");
         scanf("%d", &scelta);
         getchar(); // pulisci buffer input
 
@@ -67,7 +67,7 @@ int main() {
                 stampa_lista(lista_canzoni);
                 break;
             case 3:
-                printf("Inserisci artista da cercare: ");
+                printf("Enter artist to search for: ");
                 fgets(artista, 50, stdin);
                 ricerca_canzone_artista(lista_canzoni, artista);
                 break;
@@ -81,10 +81,10 @@ int main() {
                 cancella_canzone_playlist(playlist);
                 break;
             case 0:
-                printf("Uscita...\n");
+                printf("Exit...\n");
                 break;
             default:
-                printf("Scelta non valida. Riprova.\n");
+                printf("Invalid choice. Try again.\n");
         }
 
     } while (scelta != 0);
@@ -100,19 +100,19 @@ int main() {
 
 void stampa_canzone(Song *c) 
 {
-    printf("%s di %s - %d secondi\n", c->titolo, c->artista, c->durata);
+    printf("%s di %s - %d Second\n", c->titolo, c->artista, c->durata);
 }
 
 void set_canzone(Song *c) 
 {
     id_univoco++;
     c->id = id_univoco;
-    printf("---- Inserimento canzone con id %d ----\n", c->id);
-    printf("Inserisci titolo canzone: ");
+    printf("---- Insert song with id %d ----\n", c->id);
+    printf("Enter song title: ");
     fgets(c->titolo, 40, stdin);
-    printf("Inserisci artista canzone: ");
+    printf("Enter song artist: ");
     fgets(c->artista, 40, stdin);
-    printf("Inserisci durata canzone: ");
+    printf("Enter song duration: ");
     scanf("%d", &c->durata);
     getchar();
 }
@@ -149,7 +149,7 @@ void ricerca_canzone_artista(Lista *l, char* artista)
 {
     Song* temp = l->testa;
     int trovata = 0;
-    printf("Ricerca canzoni dell'artista %s.......\n", artista);
+    printf("Search for songs by the artist %s.......\n", artista);
     while (temp != NULL) {
         if (strcmp(temp->artista, artista) == 0) 
         {
@@ -159,7 +159,7 @@ void ricerca_canzone_artista(Lista *l, char* artista)
         temp = temp->next;
     }
     if(trovata == 0) 
-        printf("Non è stata trovata nessuna canzone per l'artista selezionato\n");
+        printf("No songs found for the selected artist\n");
 }
 
 void libera_memoria(Lista* l) 
@@ -178,7 +178,7 @@ void inserisci_canzone_playlist(Lista *lista, Lista *playlist)
 {
     Song* temp = lista->testa;
     int id;
-    printf("Inserisci id della canzone che vuoi aggiungere ala lista: ");
+    printf("Enter the ID of the song you want to add to the list: ");
     scanf("%d", &id);
     getchar();
     while (temp != NULL) 
@@ -191,7 +191,7 @@ void inserisci_canzone_playlist(Lista *lista, Lista *playlist)
     }
     if(temp == NULL) 
     {
-        printf("Canzone non trovata!!!\n");
+        printf("Song not found!!!\n");
         return;
     }
     if (playlist->testa == NULL) {
@@ -224,7 +224,7 @@ void stampa_playlist(Lista* playlist)
 void cancella_canzone_playlist(Lista *playlist) 
 {
     int id;
-    printf("Inserisci id della canzone che vuoi tolgiere dalla playlist: ");
+    printf("Enter the ID of the song you want to remove from the playlist: ");
     scanf("%d", &id);
     getchar();
 
@@ -267,5 +267,5 @@ void cancella_canzone_playlist(Lista *playlist)
         }
         current = current->next;
     }
-    printf("Canzone non trovata e non eliminata!\n");
+    printf("Canzone not found and not deleated!!!\n");
 }
