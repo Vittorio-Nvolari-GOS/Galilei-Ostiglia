@@ -18,26 +18,28 @@
 
                 if(somma%2==0)
                 {
-                    document.bgColor="Red";
+                    
+                    document.getElementById("Risultato").style.backgroundColor="blue";
                     alert("Risultato pari");
                 }
                 else
                 {
-                    document.bgColor="blue";
-                    alert("Risultato dispari")
+                    document.getElementById("Risultato").style.backgroundColor="blue";
+                    alert("Risultato dispari");
                 }
             }
             
         </script>
     </head>
     <body>
-         <h2>Somma di due numeri</h2>
-        <input type="number" id="num1" placeholder="inserisci il primo numero" name="num1">
-        <input type="number" id="num2" placeholder="inserisci il secondo numero" name="num2">
-        <br><br>
-        <button id="somma" onclick="somma();" >Calcola Somma</button>
-        <!--<input type=button value=calcola somma>-->
-        <br><br>
-        <label>Risultato: </label><div id="risultato">0</div>
+        <div id="Risultato">
+            <h2>Somma di due numeri</h2>
+            <input type="number" id="num1" placeholder="inserisci il primo numero" name="num1">
+            <input type="number" id="num2" placeholder="inserisci il secondo numero" name="num2">
+            <br><br>
+            <button id="somma" onclick="somma();" >Calcola Somma</button>
+            <br><br>
+            <label>Risultato: </label><div id="risultato">0</div>
+        </div>
     </body>
 </html>
