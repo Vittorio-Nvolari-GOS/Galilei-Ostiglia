@@ -15,7 +15,7 @@
 #include <stdio.h>
 #include <string.h>
 
-typedef Prodotto
+typedef  struct Prodotto
 {
     char Nome[20];
     int Cod;
@@ -25,49 +25,41 @@ typedef Prodotto
 }Prodotto;
 
 
-void RegistraProdotto(Prodotto prod,int *N)
+void RegistraProdotto(Prodotto *prodotti, int *n)
 {
-    int i=N;
-    *N++;
-    prod=(Prodotto)realloc(*N*sizeof(prod));
-
+    Prodotto prodotto;
     printf("Inserisci il nome del prodotto:\n");
-    fgets(prod[i].Nome,20.,stdin);
-    getchar();
+    fgets(prodotto.Nome,20,stdin);
     printf("Inserisci il codice del prodotto:\n");
-    scanf("&d",&prod[i].Cod);
+    scanf("%d", &prodotto.Cod);
+    getchar();
     printf("Inserisci la quantità di prodotto:\n");
-    scanf("&d",&prod[i].Pez);
+    scanf("%d",&prodotto.Pez);
     printf("Inserisci il prezzo del prodotto:\n");
-    scanf("&f",&prod[i].Prezzo);
+    scanf("%f", &prodotto.Prezzo);
 
-    
+    prodotti[*n] = prodotto;
+    (*n)++;
+    //prodotti = (Prodotto*)realloc(prodotti, (*n) *sizeof(prodotti));
 
 }
 
-void StampaProdotti(Prodotto prod,int N)
+void StampaProdotti(Prodotto* prod,int N)
 {
-    int i=0;
-    if(prod==NULL)
-        printf("Nessun Prodotto inserito");
-    else
-    {
+    int i = 0;
         for ( i = 0; i < N; i++)
         {
             printf("<---------------------->\n");
             printf("Num %d\n",i);
-            printf("Nome: %d\n",prod[i].Nome);
+            printf("Nome: %s\n",prod[i].Nome);
             printf("Codice Prodotto: %d\n",prod[i].Cod);
-            printf("2.Inserisci Prodotto\n",prod[i].Pez);
-            printf("3.Valore Totale Magazzino\n",prod[i].Prezzo);
+            printf("Prezzo: %f\n",prod[i].Prezzo);
             printf("<---------------------->\n");
         }
-    }
-    
-    
 }
+    
 
-void CercaProdottoCOD(Prodotto prod,int N)
+void CercaProdottoCOD(Prodotto *prod,int N)
 {
     int codice=0;
     int i=0;
@@ -91,10 +83,10 @@ void CercaProdottoCOD(Prodotto prod,int N)
         {
             printf("<---------------------->\n");
             printf("Num %d\n",i);
-            printf("Nome: %d\n",prod[i].Nome);
+            printf("Nome: %s\n",prod[i].Nome);
             printf("Codice Prodotto: %d\n",prod[i].Cod);
-            printf("2.Inserisci Prodotto\n",prod[i].Pez);
-            printf("3.Valore Totale Magazzino\n",prod[i].Prezzo);
+            printf("2.Inserisci Prodotto %d\n",prod[i].Pez);
+            printf("3.Valore Totale Magazzino %f\n",prod[i].Prezzo);
             printf("<---------------------->\n");
         }
         
@@ -102,11 +94,28 @@ void CercaProdottoCOD(Prodotto prod,int N)
     }
 }
 
+void ValoreMagazzinoTotale(Prodotto* prod,int N)
+{
+    float somma=0;
+    if(prod==NULL)
+        printf("Nessun Prodotto inserito");
+    else
+    {
+        for (int i = 0; i < N; i++)
+        {
+            somma+=prod[i].Prezzo*prod[i].Pez;
+        }
+        printf("Il Valore totale del magazzino corrisponde a : %f",somma);
+        
+    }
+
+}
+
 int main()
 {
-    int n=0;
+    int n=30;
     int scelta=0;
-    Prodotto prodotti=NULL;
+    Prodotto* prodotti = (Prodotto*)malloc(n * sizeof(Prodotto));
     do
     {
         printf("<---------------------->\n");
@@ -121,21 +130,25 @@ int main()
         switch (scelta)
         {
         case 0:
-            RegistraProdotto(prodotti,&n);
+            if(n>30){
+                printf("Array troppo pieno");
+            }else{
+               RegistraProdotto(prodotti,&n);
+            }
             break;
         case 1:
             StampaProdotti(prodotti,n);
             break;
         case 2:
-
+            CercaProdottoCOD(prodotti,n);
             break;
         case 3:
-
+            ValoreMagazzinoTotale(prodotti,n);
             break;
-        case 4 
+        case 4:
             break;
         } 
-    } while (scelta==4);
+    } while (scelta != 4);
     
     
 }
