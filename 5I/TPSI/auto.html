@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<!--
+    I file auto.html e auto.json DEVONO ESSERE inseriti nella stessa cartella
+    del server web (es. c:\uwamp\www\Galilei-Ostiglia\TPSI)
+    DEVI richiamare il file HTML con la URL, come fosse un sito web.
+    http://localhost/Galilei-Ostiglia/TPSI/auto.html
+ -->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Garage auto json</title>
+    </head>
+    <body>
+        <h2>Garage</h2>
+
+        <button id="btnCaricaJSON">Visualizza tutte</button>
+        <button id="btnUnico">Unico proprietario</button>
+        <br /><br />
+
+        <!-- Ricerca per provincia -->
+        Provincia: <input type="text" id="txtProvincia" placeholder="es. Verona">
+        <button id="btnProvincia">Cerca per provincia</button>
+        <br /><br />
+
+        <!-- Ricerca per marca -->
+        Marca: <input type="text" id="txtMarca" placeholder="es. Fiat">
+        <button id="btnMarca">Cerca per marca</button>
+        <br /><br />
+
+        <!-- Ricerca per intervallo di anni -->
+        Dall'anno: <input type="number" id="txtAnnoX" placeholder="es. 2000">
+        all'anno: <input type="number" id="txtAnnoY" placeholder="es. 2023">
+        <button id="btnAnni">Cerca per anno</button>
+        <br /><br />
+
+        <div id="viewBox" style="border: solid 1px rgb(200,0,0); padding: 5px;"></div>
+
+        <script>
+            /*  Legge il file auto.json dal server e restituisce il vettore di JSON. */
+            async function caricaGarage(){
+                /* Viene eseguita una richiesta http al server per la risorsa auto.json,
+                il contenuto viene restituito al browser sottoforma di promessa */
+                const promise = await fetch("auto.json");
+                /* Per utilizzare i dati ricevuti devo farne il "parsing" in formato JSON. */
+                const vettGarage = await promise.json();
+                return vettGarage;
+            }
+
+            /*  Restituisce una riga di testo con i dati di un'auto. */
+            function rigaAuto(auto){
+                return auto.marca + " " + auto.modello + " - " + auto.anno_immatriclazione + " - " +
+                       auto.provincia + " - unico proprietario: " + auto.unico_proprietario + " - km: " +
+                       auto.kilometraggio + "<br />";
+            }
+
+            /*  Visualizza tutte le auto. */
+            async function leggiGarage(){
+                const vettGarage = await caricaGarage();
+                let vb = document.querySelector("#viewBox");
+                vb.innerHTML = "Numero di JSON ricevuti: " + vettGarage.length + "<br /><br />";
+
+                for(let i = 0; i < vettGarage.length; i++){
+                    vb.innerHTML += rigaAuto(vettGarage[i]);
+                }
+            }
+
+            /*  Visualizza le auto con unico proprietario. */
+            async function leggiGarageUni(){
+                const vettGarage = await caricaGarage();
+                let vb = document.querySelector("#viewBox");
+                vb.innerHTML = "Auto con unico proprietario:<br /><br />";
+                let trovate = 0;
+
+                for(let i = 0; i < vettGarage.length; i++){
+                    if(vettGarage[i].unico_proprietario == "true"){
+                        vb.innerHTML += rigaAuto(vettGarage[i]);
+                        trovate++;s
+                    }
+                }
+                vb.innerHTML += "<br />Trovate: " + trovate;
+            }
+
+            /*  1) Ricerca e visualizzazione autovetture secondo la Provincia. */
+            async function leggiGaragePro(){
+                let pro = document.querySelector("#txtProvincia").value.trim();
+                let vb = document.querySelector("#viewBox");
+
+                if(pro == ""){
+                    vb.innerHTML = "Inserisci una provincia.";
+                    return;
+                }
+
+                const vettGarage = await caricaGarage();
+                vb.innerHTML = "Auto della provincia di " + pro + ":<br /><br />";
+                let trovate = 0;
+
+                for(let i = 0; i < vettGarage.length; i++){
+                    // toLowerCase() per non distinguere maiuscole/minuscole
+                    if(vettGarage[i].provincia.toLowerCase() == pro.toLowerCase()){
+                        vb.innerHTML += rigaAuto(vettGarage[i]);
+                        trovate++;
+                    }
+                }
+                vb.innerHTML += "<br />Trovate: " + trovate;
+            }
+
+            /*  2) Ricerca e visualizzazione autovetture di una determinata marca. */
+            async function leggiGarageMarca(){
+                let marca = document.querySelector("#txtMarca").value.trim();
+                let vb = document.querySelector("#viewBox");
+
+                if(marca == ""){
+                    vb.innerHTML = "Inserisci una marca.";
+                    return;
+                }
+
+                const vettGarage = await caricaGarage();
+                vb.innerHTML = "Auto della marca " + marca + ":<br /><br />";
+                let trovate = 0;
+
+                for(let i = 0; i < vettGarage.length; i++){
+                    if(vettGarage[i].marca.toLowerCase() == marca.toLowerCase()){
+                        vb.innerHTML += rigaAuto(vettGarage[i]);
+                        trovate++;
+                    }
+                }
+                vb.innerHTML += "<br />Trovate: " + trovate;
+            }
+
+            /*  3) Ricerca e visualizzazione autovetture con immatricolazione
+                   compresa tra anno_x e anno_y (estremi inclusi). */
+            async function leggiGarageAnni(){
+                let anno_x = parseInt(document.querySelector("#txtAnnoX").value);
+                let anno_y = parseInt(document.querySelector("#txtAnnoY").value);
+                let vb = document.querySelector("#viewBox");
+
+                if(isNaN(anno_x) || isNaN(anno_y)){
+                    vb.innerHTML = "Inserisci entrambi gli anni.";
+                    return;
+                }
+
+                // se l'utente inserisce gli anni al contrario li scambio
+                if(anno_x > anno_y){
+                    let temp = anno_x;
+                    anno_x = anno_y;
+                    anno_y = temp;
+                }
+
+                const vettGarage = await caricaGarage();
+                vb.innerHTML = "Auto immatricolate tra il " + anno_x + " e il " + anno_y + ":<br /><br />";
+                let trovate = 0;
+
+                for(let i = 0; i < vettGarage.length; i++){
+                    let anno = vettGarage[i].anno_immatriclazione;
+                    if(anno >= anno_x && anno <= anno_y){
+                        vb.innerHTML += rigaAuto(vettGarage[i]);
+                        trovate++;
+                    }
+                }
+                vb.innerHTML += "<br />Trovate: " + trovate;
+            }
+
+            /*  Collego i pulsanti alle funzioni. */
+            document.querySelector("#btnCaricaJSON").addEventListener('click', leggiGarage);
+            document.querySelector("#btnUnico").addEventListener('click', leggiGarageUni);
+            document.querySelector("#btnProvincia").addEventListener('click', leggiGaragePro);
+            document.querySelector("#btnMarca").addEventListener('click', leggiGarageMarca);
+            document.querySelector("#btnAnni").addEventListener('click', leggiGarageAnni);
+        </script>
+    </body>
+</html>

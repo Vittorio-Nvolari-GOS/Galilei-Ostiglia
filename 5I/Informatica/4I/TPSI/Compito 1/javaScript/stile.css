@@ -1,0 +1,30 @@
+body
+{
+    margin: 0px;
+    padding: 0px;
+    background: red;
+    color: #888;
+    font-size: 16px;
+    font-family: Verdana, sans-serif;
+
+}
+
+#img
+{
+    align-content:  ;
+}
+
+#container
+{
+    width: 960px;
+    margin: 0px auto;
+    background: white;
+
+}
+
+#header
+{
+    width: 920px;
+    padding: 5px 20px;
+    background: rgb(255, 0, 0);
+}

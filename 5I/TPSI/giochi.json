@@ -1,0 +1,28 @@
+[
+    {
+        "Nome": "Fortnite",
+        "CasaEditrice": "Epic Games",
+        "tipologia": "combattimento",
+
+    },
+    {
+        "Nome": "Fortnite",
+        "CasaEditrice": "Epic Games",
+        "tipologia": "combattimento"
+    },
+    {
+        "Nome": "GTA 6",
+        "CasaEditrice": "Rock Star",
+        "tipologia": "Open World"
+    },
+    {
+        "Nome": "Clash Royal",
+        "CasaEditrice": "Super cell",
+        "tipologia": "Strategia"
+    },
+    {
+        "Nome": "Minecraft",
+        "CasaEditrice": "Mojang",
+        "tipologia": "SandBox"
+    }
+]

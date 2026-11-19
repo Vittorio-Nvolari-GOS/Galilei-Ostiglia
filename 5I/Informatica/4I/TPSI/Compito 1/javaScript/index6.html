@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Esercasd</title>
+        <style>
+            #output
+            {
+                width: 400px;
+                height: 300px;
+                border: 1px solid rgb(0, 0, 0);
+            }
+        </style>
+        <script>
+            var dimCarattere=15;
+            var width= 400;
+            var height= 300;
+            
+            function scrivi()
+            {
+                document.getElementById("output").innerHTML = description.value;
+                
+            }
+            function colora()
+            {
+                var msg = document.getElementById("description").value;
+                var color = document.getElementById("color").value;
+
+                document.getElementById("output").innerHTML = msg;
+                document.getElementById("output").style.color = color;
+                
+
+
+
+            }
+            function allargaCarattere()
+            {
+                dimCarattere++;
+                var msg = document.getElementById("description").value;
+                
+
+                document.getElementById("output").style.fontSize = dimCarattere + "px";
+
+
+
+            }
+            function riducigaCarattere()
+            {
+                dimCarattere--;
+                var msg = document.getElementById("description").value;
+                
+
+                document.getElementById("output").style.fontSize = dimCarattere + "px";
+
+            }
+            function aumentaDiv()
+            {
+                
+                width+= 30;
+                height+= 30;
+                document.getElementById("output").style.height= height + "px"
+                document.getElementById("output").style.width= width + "px"
+
+            }
+             function riduciDiv()
+            {
+                
+                width-= 30;
+                height-= 30;
+                document.getElementById("output").style.height= height + "px"
+                document.getElementById("output").style.width= width + "px"
+
+            }
+            function indovina()
+            {
+                var numero = Math.floor(Math.random() * 100) + 1;
+                var msg = document.getElementById("description").value;
+                if(msg>numero&&msg<=numero+5)
+                {
+                    document.body.style.backgroundColor = "blue";
+                }
+                else if(msg>numero+5 && msg<=numero+10)
+                   document.body.style.backgroundColor = "yellow"; 
+                else
+                    document.body.style.backgroundColor = "red";
+                if(msg==numero)
+                {
+                    document.getElementById("output").innerHTML = "Giusto";
+                    document.body.style.backgroundColor = "green";
+                }
+                    
+            }
+            function reset()
+            {
+                document.getElementById("description").value="";
+                document.bgcolor="white"
+            }
+        </script>
+        
+    </head>
+    <body>
+        <form name="moduli">
+            <label>Lascia un commeto</label>
+            <input type="number" id="description" name="description" maxlength="100"></input>
+            </br></br>
+            <input type="button" value="clicca" onclick="indovina()"></input>
+            <input type="button" value="resetta" onclick="reset()"></input>
+            </br></br></br>
+            <div id="output"></div>
+            
+            
+
+
+        </form>
+    </body>
+</html>

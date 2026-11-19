@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        <title>Video Giochi</title>
+    </head>
+    <Body>
+
+        <h1>Lista Giochi</h1>
+        <div class="conteiner mt-3">
+            <button class="btn btn-primary" id="caricaArchivio">Carica lista</button>
+            <input type="text" class="form-cotrol mb3" id="NomeGioco" placeholder="es. Fortnite">
+            <button class="btn btn-primary" id="cercaPerNome">Cerca per Nome</button>
+            <input type="text" class="form-cotrol mb3" id="NomeTipologia" placeholder="es. Combatimento">
+            <button class="btn btn-primary" id="cercaPerTipologia">Cerca per Tipologia</button>
+        </div>
+        <script>
+            document.querySelector("#caricaArchivio").addEventListener('click', async function (){
+                alert("Carico l'intero archivio di JSON...please wait!");
+            });
+            document.querySelector("#btnCaricaArchivio").addEventListener('click', async function ()
+            {
+                const promise = await fetch("giochi.jason");
+                const jsonArr = await promise.json("#viewBox");
+                let vb = document.querySelector("#viewBox");
+
+                let cnt;
+
+                let resultTable = '<table class ="table table-table-striped table-hover">';
+                resultTable += '<thead><tr>';
+                resultTable += '<th scope="col">#</th>';
+                resultTable += '<th scope="col">#</th>';
+                resultTable += '<th scope="col">nome</th>';
+                resultTable += '<th scope="col">casaEditrice</th>';
+                resultTable += '<th scope="col">tipologia</th>';
+                resultTable += '</tr></thead>';
+                resultTable += '<tbody>';
+                    for (let i = 0; i < jsonArr.length; i++) 
+                    {
+                        resultTable += '<tr>';
+                        resultTable += '<th scope="row">'+(i+1)+'</th>';
+                        resultTable += '<td>'+jsonArr[i].nome+'</td>';
+                        resultTable += '<td>'+jsonArr[i].casaEditrice+'</td>';
+                        resultTable += '<td>'+jsonArr[i].tipologia+'</td>';
+                        resultTable += '</tr>';  
+                    }
+                resultTable += '</tbody';
+                resultTable += '<caption>VideoGiochi</caption>';
+                resultTable += '</table>';
+
+                vb.innerHTML = resultTable;
+
+
+            });
+            document.querySelector("#btnCercaMarca").addEventListener('click', async function ()
+            {
+                const promise = awa
+            });
+
+
+        </script>
+
+    </Body>
+</html>

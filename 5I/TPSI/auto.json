@@ -1,0 +1,35 @@
+[
+    {
+        "marca": "Dacia",
+        "modello": "duster",
+        "anno_immatriclazione": 2023,
+        "provincia": "Verona",
+        "unico_proprietario": "true",
+        "kilometraggio":20000
+
+    },
+    {
+        "marca": "Fiat",
+        "modello": "Panda",
+        "anno_immatriclazione": 2020,
+        "provincia": "Verona",
+        "unico_proprietario": "true",
+        "kilometraggio":120000
+    },
+    {
+        "marca": "Fiat",
+        "modello": "Punto",
+        "anno_immatriclazione": 2003,
+        "provincia": "Verona",
+        "unico_proprietario": "false",
+        "kilometraggio":2000000
+    },
+    {
+        "marca": "merchedes",
+        "modello": "GLC 4 MATIC AMG",
+        "anno_immatriclazione": 2025,
+        "provincia": "Verona",
+        "unico_proprietario": "true",
+        "kilometraggio":2000
+    }
+]

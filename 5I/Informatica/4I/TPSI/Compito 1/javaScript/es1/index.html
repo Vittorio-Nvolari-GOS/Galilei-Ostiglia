@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Forme e Colori</title>
+        <style>
+            #triangolo{
+                width: 400px;
+                height: 300px;
+                border: 2px solid black;
+            }
+            #cerchio{
+                width: 550px;
+                height: 300px;
+                border: 2px solid black;
+            }
+            #quadrato{
+                width: 500px;
+                height: 300px;
+                border: 2px solid black;
+            }
+        </style>
+        <script>
+            function coloraTriangolo(){
+                document.body.style.backgroundColor = "red";
+            }
+            function coloraCerchio(){
+                document.body.style.backgroundColor = "yellow";
+            }
+            function coloraQuadrato(){
+                document.body.style.backgroundColor = "green";
+            }
+            function coloraBianco(){
+                document.body.style.backgroundColor = "white";
+            }
+        </script>
+    </head>
+    <body>
+        <img src="./immagini/triangolo.png" id="triangolo" onmouseover="coloraTriangolo();" onmouseleave="coloraBianco();">
+        <img src="./immagini/cerchio.png" id="cerchio" onmouseover="coloraCerchio();" onmouseleave="coloraBianco();">
+        <img src="./immagini/quadrato.png" id="quadrato" onmouseover="coloraQuadrato();" onmouseleave="coloraBianco();">
+    </body>
+</html>
