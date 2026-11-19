@@ -1,0 +1,12 @@
+CREATE TABLE medici
+(
+    id integer unsigned auto_increment,
+    nome varchar(20) NOT NULL,
+    cognome varchar(20) NOT NULL,
+    codiceFiscale char(16) NOT NULL,
+    numeroAlbo int(integer) NOT NULL,
+    numeroTelefono char(10) NOT NULL,
+    email varchar(20) NOT NULL,
+
+    primary key(id)
+);
